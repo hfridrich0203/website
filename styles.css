@@ -1,0 +1,705 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f8f5f0;
+  color: #2f2f2f;
+  line-height: 1.6;
+}
+
+/* Navbar */
+#navbar {
+  background-color: #5a3421;
+  padding: 16px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  color: #f3e7dc;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #dbe8ef;
+}
+
+/* Sections */
+section {
+  padding: 80px 12%;
+  scroll-margin-top: 100px;
+}
+
+/* Background order */
+#adoption-matters, #healing-thriving {
+  background-color: #f5f1ee;
+}
+
+#issue-matters, #help-section {
+  background-color: #dbe8ef;
+}
+
+#myths-section, #facts {
+  background-color: #f3e7dc;
+}
+
+/* Hero */
+#home {
+  background: linear-gradient(rgba(70, 45, 30, 0.45), rgba(70, 45, 30, 0.45)),
+    url("dog-banner.png") center/cover no-repeat;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  padding: 0 8%;
+}
+
+#home h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  max-width: 700px;
+  line-height: 1.1;
+  color: white;
+}
+
+#home p {
+  font-size: 1.15rem;
+  max-width: 700px;
+  line-height: 1.6;
+  color: white;
+}
+
+/* Headings + text */
+h1,
+h2 {
+  color: #5a3421;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+p {
+  max-width: 900px;
+  font-size: 1.05rem;
+}
+
+/* Global links */
+a {
+  color: #5a3421;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #7a4a32;
+}
+
+/* Adoption sections */
+.adoption-section {
+  padding: 80px 12%;
+}
+
+.adoption-content {
+  max-width: 1100px;
+}
+
+.adoption-section h2 {
+  font-size: 55px;
+  color: #5a3421;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.adoption-section p {
+  font-size: 24px;
+  line-height: 1.6;
+  color: #333;
+  max-width: 1100px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.adoption-img-link {
+  display: block;
+  width: 700px;
+  max-width: 100%;
+  margin: 10px auto 0;
+}
+
+.adoption-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* Myths */
+#myths-section h2 {
+  font-size: 55px;
+  color: #5a3421;
+  margin-bottom: 20px;
+}
+#myths-section h3 {
+  text-align: center;
+}
+
+.myths-intro {
+  font-size: 24px;
+  line-height: 1.6;
+  color: #333;
+  max-width: 1000px;
+  margin-bottom: 50px;
+}
+
+.flip-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(320px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+}
+
+.flip-card {
+  perspective: 1000px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  transition: transform 0.7s;
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.flip-card-front {
+  transform: rotateY(0deg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  isolation: isolate;
+  color: #3a2419;
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.4;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.35);
+}
+
+.flip-card-front::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(219, 232, 239, 0.45);
+  z-index: 1;
+}
+
+.flip-card-front span {
+  position: relative;
+  z-index: 2;
+  max-width: 85%;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(135deg, #7a4b2f, #5f3923);
+  color: white;
+}
+
+.flip-card-back p {
+  max-width: 90%;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.flip-card-back a {
+  color: #ffd9b3;
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+.flip-card-back a:hover {
+  color: #fff3e6;
+}
+
+.myth-behavior {
+  background-image: url("behavioral-problems.jpg");
+}
+
+.myth-find {
+  background-image: url("find-right-dog.jpg");
+}
+
+.myth-loving {
+  background-image: url("less-loving.jpg");
+}
+
+.myth-pitbull {
+  background-image: url("pitbull.jpg");
+}
+
+/* Facts */
+#facts {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 70px;
+}
+
+.facts-text {
+  flex: 1;
+  max-width: 650px;
+}
+
+.facts-text h2 {
+  font-size: 55px;
+  color: #5a3421;
+  margin-bottom: 24px;
+}
+
+.facts-text p {
+  font-size: 24px;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 24px;
+}
+
+.facts-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.facts-image a {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+}
+
+.facts-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.facts-image a:hover img {
+  transform: scale(1.01);
+  opacity: 0.95;
+}
+
+/* Success stories */
+#healing-thriving {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 70px;
+}
+
+.healing-text {
+  flex: 1;
+  max-width: 620px;
+}
+
+.healing-text h2 {
+  font-size: 55px;
+  color: #5a3421;
+  margin-bottom: 24px;
+}
+
+.healing-text p {
+  font-size: 24px;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 24px;
+}
+
+.story-cards {
+  flex: 0 0 420px;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.story-card {
+  background-color: #dbe8ef;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(90, 52, 33, 0.12);
+}
+
+.story-card a {
+  display: block;
+}
+
+.story-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.story-card a:hover img {
+  transform: scale(1.01);
+  opacity: 0.95;
+}
+
+.story-card-text {
+  padding: 24px;
+}
+
+.story-card-text h3 {
+  font-size: 30px;
+  color: #5a3421;
+  margin-bottom: 12px;
+}
+
+.story-card-text p {
+  font-size: 21px;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Help */
+.help-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.help-icon:hover {
+  transform: translateY(-4px);
+}
+
+.icon-circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: #f3e7dc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 38px;
+  margin-bottom: 12px;
+  border: 2px solid transparent;
+}
+
+.help-icon.active .icon-circle {
+  border: 2px solid #5a3421;
+  background-color: #fff8f2;
+}
+
+#help-section {
+  text-align: center;
+}
+
+#help-section h2 {
+  font-size: 55px;
+  color: #5a3421;
+  margin-bottom: 20px;
+}
+
+.help-intro {
+  font-size: 24px;
+  line-height: 1.6;
+  color: #333;
+  max-width: 950px;
+  margin: 0 auto 50px;
+}
+
+.help-icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-bottom: 40px;
+}
+
+.help-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.help-icon:hover {
+  transform: translateY(-4px);
+}
+
+.icon-circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: #f3e7dc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 38px;
+  margin-bottom: 12px;
+  border: 2px solid transparent;
+}
+
+.help-icon span {
+  font-size: 20px;
+  color: #5a3421;
+  font-weight: 600;
+}
+
+.help-icon.active .icon-circle {
+  border: 2px solid #5a3421;
+  background-color: #fff8f2;
+}
+
+.help-display {
+  background-color: #f3e7dc;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 32px;
+  border-radius: 18px;
+  text-align: left;
+  box-shadow: 0 4px 12px rgba(90, 52, 33, 0.08);
+}
+
+.help-display h3 {
+  font-size: 30px;
+  color: #5a3421;
+  margin-bottom: 14px;
+}
+
+.help-display p {
+  font-size: 22px;
+  line-height: 1.6;
+  color: #333;
+}
+.help-click-text {
+  font-size: 20px;
+  line-height: 1.6;
+  color: #333;
+  max-width: 950px;
+  margin: 30px auto 40px;
+  text-align: center;
+  font-weight: 500;
+}
+.help-click-text {
+  font-size: 20px;
+  line-height: 1.6;
+  color: #333;
+  max-width: 950px;
+  margin: 30px auto 40px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.help-display {
+  background-color: #f3e7dc;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 32px;
+  border-radius: 18px;
+  text-align: left;
+  box-shadow: 0 4px 12px rgba(90, 52, 33, 0.08);
+}
+
+.help-display h3 {
+  font-size: 30px;
+  color: #5a3421;
+  margin-bottom: 14px;
+}
+
+.help-display p {
+  font-size: 22px;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 24px;
+}
+
+#help-link {
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+#help-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+#help-link:hover #help-image {
+  transform: scale(1.01);
+  opacity: 0.95;
+}
+
+
+
+
+
+
+.scroll-fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.scroll-fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.myth-subheading {
+  font-size: 2.2rem;
+  color: #2f2f2f;
+  margin: 40px 0 20px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .flip-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .flip-card-inner,
+  .flip-card-front,
+  .flip-card-back {
+    min-height: 360px;
+  }
+
+  .flip-card-front {
+    font-size: 22px;
+  }
+
+  #facts,
+  #healing-thriving {
+    flex-direction: column;
+  }
+
+  .facts-text,
+  .facts-image,
+  .healing-text,
+  .story-cards {
+    max-width: 100%;
+  }
+
+  .facts-image {
+    justify-content: flex-start;
+    max-height: 500px;
+  }
+
+  .healing-text h2,
+  .facts-text h2,
+  #help-section h2,
+  .adoption-section h2,
+  #myths-section h2 {
+    font-size: 42px;
+  }
+
+  .adoption-section p,
+  .myths-intro,
+  .facts-text p,
+  .healing-text p,
+  .help-intro,
+  .help-display p,
+  .story-card-text p {
+    font-size: 20px;
+  }
+
+  .story-card-text h3,
+  .help-display h3 {
+    font-size: 26px;
+  }
+
+  .icon-circle {
+    width: 78px;
+    height: 78px;
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  #navbar {
+    padding: 14px 16px;
+  }
+
+  .nav-links {
+    gap: 14px;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+  }
+
+  section {
+    padding: 60px 8%;
+  }
+
+  #home h1 {
+    font-size: 2.2rem;
+  }
+
+  #home p {
+    font-size: 1rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+}
+
