@@ -45,6 +45,26 @@ body {
   color: #dbe8ef;
 }
 
+.site-footer {
+  background-color: #5a3421;
+  color: #f3e7dc;
+  text-align: center;
+  padding: 20px;
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 18px;
+}
+
+.home-byline {
+  margin-top: 18px;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-style: italic;
+  letter-spacing: 0.5px;
+}
+
 /* Sections */
 section {
   padding: 80px 12%;

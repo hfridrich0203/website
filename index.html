@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
 <header id="navbar">
@@ -20,13 +21,17 @@
       <li><a href="#facts">Shelter Facts</a></li>
       <li><a href="#healing-thriving">Success Stories</a></li>
       <li><a href="#help-section">How You Can Help</a></li>
+      <li><a href="sources.html">Sources</a></li>
     </ul>
   </nav>
 </header>
 
+
 <section id="home">
   <h1>Adopt, Don't Shop</h1>
-<p>Adoption saves lives, challenges harmful stereotypes, and gives shelter dogs the loving homes they deserve.</p></section>
+  <p>Adoption saves lives, challenges harmful stereotypes, and gives shelter dogs the loving homes they deserve.</p>
+  <p class="home-byline scroll-fade">By Hannah Fridrich</p>
+</section>
 
 <section id="adoption-matters" class="adoption-section">
   <div class="adoption-content">
@@ -271,6 +276,25 @@
 
 
 <script>
+
+
+  const fadeItems = document.querySelectorAll('.scroll-fade');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      } else {
+        entry.target.classList.remove('show');
+      }
+    });
+  }, {
+    threshold: 0.25
+  });
+
+  fadeItems.forEach((item) => observer.observe(item));
+
+
   function showHelp(type, el) {
     const display = document.getElementById("help-display");
     const icons = document.querySelectorAll(".help-icon");
@@ -327,5 +351,11 @@
   }
 
 </script>
+
+<footer class="site-footer">
+<p>Website by Hannah Fridrich</p>
+</footer>
+
+
 </body>
 </html>   
